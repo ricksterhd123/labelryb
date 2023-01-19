@@ -1,6 +1,6 @@
 # Labelryb
 
-A quick and dirty command line tool used to convert PDF into ZPL using http://labelary.com/ public REST API
+A quick and dirty command line tool used to convert ZPL into PDF using http://labelary.com/ public REST API
 
 ## Installation
 ```bash

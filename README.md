@@ -4,7 +4,8 @@ A quick and dirty command line tool used to convert PDF into ZPL using http://la
 
 ## Installation
 `clone repository && cd`
-`bundle install`
+`chmod +x bin/setup`
+`bin/setup`
 `gem build`
 `gem install labelryb-{VERSION}.gem`
 

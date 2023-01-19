@@ -11,3 +11,10 @@ A quick and dirty command line tool used to convert PDF into ZPL using http://la
 
 ## Usage
 `labelryb -i examples/test.zpl -o test.pdf`
+
+## TODO
+- File URI validation on input
+- Add dpmm, width, height and other options
+- Support PNG and other output formats
+- Detect multiple pages (index option)
+- Handle API errors

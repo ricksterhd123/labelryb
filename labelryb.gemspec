@@ -8,13 +8,13 @@ Gem::Specification.new do |spec|
   spec.authors = ['ricksterhd123']
   spec.email = ['ricksterhd123@gmail.com']
 
-  spec.summary = 'Labelry API client'
+  spec.summary = 'Labelry command line tool'
   spec.description = 'Convert ZPL to PDF via command-line'
   spec.homepage = 'https://github.com/ricksterhd123'
   spec.required_ruby_version = '>= 3.0.0'
 
   spec.metadata['homepage_uri'] = spec.homepage
-  spec.metadata['source_code_uri'] = 'https://github.com/ricksterhd123'
+  spec.metadata['source_code_uri'] = 'https://github.com/ricksterhd123/labelryb'
 
   spec.files =
     Dir.chdir(__dir__) do

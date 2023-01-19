@@ -1,8 +1,8 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
-require "bundler/setup"
-require "labelryb"
+require 'bundler/setup'
+require 'labelryb'
 
 # You can add fixtures and/or initialization code here to make experimenting
 # with your gem easier. You can also use a different console, if you like.
@@ -11,5 +11,26 @@ require "labelryb"
 # require "pry"
 # Pry.start
 
-require "irb"
+zpl_raw = %{
+^XA
+^FX Top section with logo, name and address.
+^CF0,60
+^FO50,50^GB100,100,100^FS
+^FO75,75^FR^GB100,100,100^FS
+^FO93,93^GB40,40,40^FS
+^FO220,50^FDIntershipping, Inc.^FS
+^CF0,30
+^FO220,115^FD1000 Shipping Lane^FS
+^FO220,155^FDShelbyville TN 38102^FS
+^FO220,195^FDUnited States (USA)^FS
+^FO50,250^GB700,3,3^FS
+^XZ
+}
+
+zpl = Labelryb::ZPL.new(zpl_raw)
+api = Labelryb::API.new(:i8dpmm, 4, 6)
+pdf = api.render_zpl(zpl)
+pdf.to_file('test.pdf')
+
+require 'irb'
 IRB.start(__FILE__)

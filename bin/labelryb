@@ -1,4 +1,31 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
-puts 'Hello world'
+require 'optparse'
+require 'labelryb'
+
+options = {
+  dpmm: :i8dpmm,
+  width: 4,
+  height: 6
+}
+
+opt_parse = OptionParser.new do |opts|
+  opts.banner = 'Usage: labelryb [options]'
+
+  opts.on('-i', '--input ZPL input', 'ZPL input file') do |v|
+    options[:input] = v
+  end
+
+  opts.on('-o', '--output PDF output', 'PDF output file') do |v|
+    options[:output] = v
+  end
+end
+opt_parse.parse!
+
+abort(opt_parse.help) if options[:input].nil? || options[:output].nil?
+
+zpl = Labelryb::ZPL.from_file(options[:input])
+api = Labelryb::API.new(options[:dpmm], options[:width], options[:height])
+pdf = api.render_zpl(zpl)
+pdf.to_file(options[:output])
